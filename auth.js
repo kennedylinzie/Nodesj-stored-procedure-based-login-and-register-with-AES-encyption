@@ -1,12 +1,11 @@
-// Import necessary modules with ESM syntax
+
 import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
 
-// Load environment variables
+
 dotenv.config();
 const MASTER_KEY = process.env.MASTER_KEY;
 
-// Database configuration
 const dbConfig = {
     host: 'localhost',
     user: 'root',
@@ -15,7 +14,7 @@ const dbConfig = {
     port: 8889
 };
 
-// Register User Function
+
 export async function registerUser(username, password, keyVersion) {
     const connection = await mysql.createConnection(dbConfig);
     try {
@@ -48,7 +47,7 @@ export async function loginUser(username, password) {
     }
 }
 
-// Key Rotation Function
+
 export async function rotateKey(oldKey, newKey, newKeyVersion) {
     const connection = await mysql.createConnection(dbConfig);
     try {
